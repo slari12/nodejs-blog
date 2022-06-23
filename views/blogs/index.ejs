@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ejs for the HEAD -->
+<%- include('../partials/head.ejs') %> 
+<!-- ejs for the HEAD -->
+<body>
+    <!-- ejs for the NAV tag -->
+    <%- include('../partials/nav.ejs') %> 
+    <!-- ejs for the NAV tag so that it can be used on other web page -->
+
+    <div class="blogs content">
+        <h2>All Blogs</h2>
+
+        <% if(blogs.length > 0){ %>
+           <% blogs.forEach(blog => {%>
+            <a href="/blogs/<%= blog._id%>" class="single">
+            <h3 class="title"><%= blog.title %></h3>
+            <p class="snippet"><%= blog.snippet %></p>
+        </a>
+          <% }) %>
+        <% }else{%>
+            <p>There are no blogs to display...</p>
+        <% } %>
+    </div>
+
+    <!-- ejs for the footer -->
+    <%- include('../partials/footer.ejs') %>
+    <!-- ejs for the footer -->
+</body>
+</html>
